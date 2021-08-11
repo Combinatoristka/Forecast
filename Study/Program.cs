@@ -17,7 +17,7 @@ namespace Study
             
 
             Admin adminBob = new Admin("Bob", 23);
-            User en = new User("En", 18);
+            User en = new User("Enn", 18);
             en.PrintUs(arrayForecast[9]);
             adminBob.SetHumidityAd(60, arrayForecast[9]);
             adminBob.PrintAd(arrayForecast[9]);
@@ -39,6 +39,7 @@ namespace Study
         }
     }
 
+    //
     enum EVariantsPrecipitation
     {
         Sunny,
