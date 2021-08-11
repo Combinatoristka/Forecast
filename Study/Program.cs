@@ -15,7 +15,7 @@ namespace Study
             for (int i = 0; i < 10; i++)
                 arrayForecast[i].GetForecast();
             Console.ReadLine();
-        }
+        } 
         static Forecast CreatingAForecast(int n)
         {
             var day = DateTime.Today.AddDays(n);
@@ -69,9 +69,12 @@ namespace Study
             this.temperatureMax = temperatureMax;
             if (temperatureMax >= temperatureMin)
                 this.temperatureMin = temperatureMin;
-            this.pressure = pressure;
-            this.humidity = humidity;
-            this.windStrength = windStrength;
+            if (pressure < 755 && pressure > 730)
+                this.pressure = pressure;
+            if (humidity > 0)
+                this.humidity = humidity;
+            if (windStrength > 0)
+                this.windStrength = windStrength;
             this.windDirection = windDirection;
             this.precipitation = precipitation;
         }
