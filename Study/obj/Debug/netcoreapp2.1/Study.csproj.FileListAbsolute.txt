@@ -1,0 +1,12 @@
+/Users/ften/Projects/Study/Study/bin/Debug/netcoreapp2.1/Study.deps.json
+/Users/ften/Projects/Study/Study/bin/Debug/netcoreapp2.1/Study.runtimeconfig.json
+/Users/ften/Projects/Study/Study/bin/Debug/netcoreapp2.1/Study.runtimeconfig.dev.json
+/Users/ften/Projects/Study/Study/bin/Debug/netcoreapp2.1/Study.dll
+/Users/ften/Projects/Study/Study/bin/Debug/netcoreapp2.1/Study.pdb
+/Users/ften/Projects/Study/Study/obj/Debug/netcoreapp2.1/Study.csprojAssemblyReference.cache
+/Users/ften/Projects/Study/Study/obj/Debug/netcoreapp2.1/Study.AssemblyInfoInputs.cache
+/Users/ften/Projects/Study/Study/obj/Debug/netcoreapp2.1/Study.AssemblyInfo.cs
+/Users/ften/Projects/Study/Study/obj/Debug/netcoreapp2.1/Study.csproj.CoreCompileInputs.cache
+/Users/ften/Projects/Study/Study/obj/Debug/netcoreapp2.1/Study.dll
+/Users/ften/Projects/Study/Study/obj/Debug/netcoreapp2.1/Study.pdb
+/Users/ften/Projects/Study/Study/obj/Debug/netcoreapp2.1/Study.genruntimeconfig.cache
