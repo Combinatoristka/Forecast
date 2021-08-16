@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System;
 
 namespace Study
 {
@@ -6,23 +7,78 @@ namespace Study
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("New test");
+            Admins listAdmins = new Admins();
+            Console.WriteLine("OK");
 
             Forecast[] arrayForecast = new Forecast[10];
             for (int i = 0; i < 10; i++)
             {
                 arrayForecast[i] = CreatingAForecast(i);
             }
-            for (int i = 0; i < 10; i++)
-                arrayForecast[i].GetForecast();
-            
+            //for (int i = 0; i < 10; i++)
+            //arrayForecast[i].GetForecast();
 
-            Admin adminBob = new Admin("Bob", 23);
-            User en = new User("Enn", 18);
-            en.PrintUs(arrayForecast[9]);
-            adminBob.SetHumidityAd(60, arrayForecast[9]);
-            adminBob.PrintAd(arrayForecast[9]);
+            listAdmins.MadeAdmins("Bob", 27, "bob2.0", "nyam");
+            listAdmins.MadeAdmins("En", 34, "En34", "En374");
+            
+            Console.WriteLine("Hello, you are registered. (YES/NO)");
+            if (CntrAnswer() == "YES")
+            {
+                Console.WriteLine("Write login.");
+                string login = Console.ReadLine().Trim();
+                for (int enumerationL = 0; enumerationL < listAdmins.GetCountAdmins(); enumerationL++)
+                {
+                    if (enumerationL == listAdmins.GetCountAdmins() - 1 && login != listAdmins.GetOneAdmin(enumerationL).GetLoginAd())
+                    {
+                        Console.WriteLine("Login is not correct. Do you enter again? (YES/NO)");
+
+                        if (CntrAnswer() == "YES")
+                        {
+                            Console.WriteLine("Write login.");
+                            login = Console.ReadLine().Trim();
+                            enumerationL = 0;
+                        }
+                        else
+                            break;
+                    }
+
+                    else if (login == listAdmins.GetOneAdmin(enumerationL).GetLoginAd())
+                    {
+                        CntrPassword(listAdmins.GetOneAdmin(enumerationL));
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                /*
+                Console.WriteLine("Write your name.");
+                string userName = Console.ReadLine();
+                Console.WriteLine("Write your age.");
+                int userAge = int.Parse(Console.ReadLine());
+                User user = new User(userName, userAge);
+                */
+                Console.WriteLine("Weather forecast for the next 10 days.\n");
+                foreach (Forecast day in arrayForecast)
+                {
+                    day.GetForecast();
+                }
+
+            }
             Console.ReadLine();
-        } 
+        }
+        public static string CntrAnswer()
+        {
+            string reply = Console.ReadLine().ToUpper().Trim();
+            while(true)
+            {
+                if (reply == "YES" || reply == "NO")
+                    return reply;
+                Console.WriteLine("The answer is incorrect, try again.");
+                reply = Console.ReadLine().ToUpper().Trim();
+            }
+        }
         static Forecast CreatingAForecast(int n)
         {
             var day = DateTime.Today.AddDays(n);
@@ -37,6 +93,26 @@ namespace Study
 
             return new Forecast (day, temperatureMax, temperatureMin, pressure, humidity, windS, direction, precipitation);
         }
+        public static void CntrPassword(OneAdmin admin)
+        {
+            while (true)
+            {
+                Console.WriteLine("Write password.");
+                string password = Console.ReadLine().Trim();
+
+                if (password == admin.GetPasswordAd())
+                {
+                    Console.WriteLine($"Hello, {admin.GetNameAd()}.");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Password is not correct. Do you enter again? (YES/NO)");
+                    if (CntrAnswer() == "NO")
+                        break;
+                }
+            }
+        }
     }
 
     //
@@ -48,7 +124,7 @@ namespace Study
         HeavyRain,
         Thunderstorm
     }
-     enum EDirection
+    enum EDirection
     {
         North,
         NW,
@@ -150,25 +226,153 @@ namespace Study
         {
             n.GetForecast();
         }
+        public string GetName()
+        {
+            return name;
+        }
     }
 
     class User : Person
-    {
+    { 
         public User (string name, int age) : base (name, age)
         { }
-        public void PrintUs(Forecast n)
+        public void UsPrintFOneDay(Forecast n)
         {
             Console.WriteLine("The user looks at it.");
             base.PrintForecast(n);
         }
     }
 
-    class Admin : Person
+    
+    class Admins //I can made so that the admin can create another admin
     {
-        public Admin (string name, int age) : base (name, age)
+        public static List<OneAdmin> listAdmin = new List<OneAdmin>();
+
+        public Admins() { }
+
+        public void MadeAdmins(string name, int age, string login, string password)
         {
+            OneAdmin ad = new OneAdmin(name, age, login, password);
+            listAdmin.Add(ad);
 
         }
+        public void PrintAdmins ()
+        {
+            int position = 0;
+            foreach (var i in listAdmin)
+            {
+                Console.WriteLine($"Position in the list {position}.\n{i}\n");
+                position += 1;
+            }
+        }
+        public void DeletAdmin (int position)
+        {
+            if (position >= 0 && position <= listAdmin.Count)
+            {
+                Console.WriteLine($"Do you really want to delete: \n{listAdmin[position]}\n\nYES/NO.\n");
+                string answer = Console.ReadLine();
+                answer.ToUpper();
+                if (answer == "YES")
+                {
+                    OneAdmin.countAdmin -= 1;
+                    listAdmin.RemoveAt(position); 
+                    Console.WriteLine($"Admin {listAdmin[position].GetNameAd()} is delet.");
+                }
+                else if (answer == "NO")
+                    Console.WriteLine("Admin is not delet.");
+            }
+            else
+            {
+                Console.WriteLine("Number out of range of the list.");
+            }
+
+        }
+
+        public int GetCountAdmins ()
+        {
+            return OneAdmin.countAdmin;
+        }
+        public OneAdmin GetOneAdmin(int i)
+        {
+            return listAdmin[i];
+        }
+    }
+
+    class OneAdmin : Person
+    {
+        public static int countAdmin = 0;
+        private string login;
+        private string password;
+
+        public OneAdmin(string name, int age, string login, string password) : base(name, age)
+        {
+            if (countAdmin != 0)
+            {
+                SetLogin(login);
+            }
+            else
+                this.login = login;
+            SetPassword(password);
+            countAdmin += 1;
+        }
+
+        public string GetNameAd()
+        {
+            return base.GetName();
+        }
+        public string GetLoginAd()
+        {
+            return login;
+        }
+        public string GetPasswordAd()
+        {
+            return password;
+        }
+
+        public void SetLogin(string setLogin)
+        {
+            
+            while (true)
+            {
+                setLogin.Trim();
+                if (setLogin != "")
+                {
+                    for (int i = 0; i < countAdmin; i++)
+                    {
+                        if (setLogin == Admins.listAdmin[i].login)
+                        {
+                            Console.WriteLine("This username already exists. Write another one.");
+                            Console.ReadLine();
+                        }
+                    }
+                    this.login = setLogin;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("The login field is empty. Write a new username.");
+                    Console.ReadLine();
+                }
+            }
+        }
+        public void SetPassword(string setPassword)
+        {
+            setPassword.Trim();
+            while (true)
+            {
+                if (String.IsNullOrEmpty(setPassword))
+                {
+                    Console.WriteLine("The password was entered incorrectly. Try again.");
+                    setPassword = Console.ReadLine().Trim();
+                }
+                else
+                {
+                    this.password = setPassword;
+                    break;
+                }
+            }
+        }
+
         public void PrintAd(Forecast n)
         {
             Console.WriteLine("The admin looks at it.");
@@ -180,11 +384,11 @@ namespace Study
         {
             forecast.SetTemperature(tMaxAd, tMinAd);
         }
-        public void SetPressureAd (int pressureAd, Forecast forecast)
+        public void SetPressureAd(int pressureAd, Forecast forecast)
         {
             forecast.SetPressure(pressureAd);
         }
-        public void SetHumidityAd (int humidityAd, Forecast forecast)
+        public void SetHumidityAd(int humidityAd, Forecast forecast)
         {
             forecast.SetHumidity(humidityAd);
         }
