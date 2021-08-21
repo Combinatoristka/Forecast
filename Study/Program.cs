@@ -48,19 +48,11 @@ namespace Study
             }
             else
             {
-                /*
-                Console.WriteLine("Write your name.");
-                string userName = Console.ReadLine();
-                Console.WriteLine("Write your age.");
-                int userAge = int.Parse(Console.ReadLine());
-                User user = new User(userName, userAge);
-                */
                 Console.WriteLine("Weather forecast for the next 10 days.\n");
                 foreach (Forecast day in arrayForecast)
                 {
                     day.GetForecast();
                 }
-
             }
             Console.ReadLine();
         }

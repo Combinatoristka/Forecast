@@ -1,10 +1,17 @@
 ﻿<Properties StartupConfiguration="{A560570C-2CF9-4634-BBF2-B5F438B26E80}|Default">
   <MonoDevelop.Ide.ItemProperties.Study PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Study/Program.cs">
+    <Files>
+      <File FileName="Study/Program.cs" Line="55" Column="18" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Study" expanded="True" selected="True" />
+          <Node name="Study" expanded="True">
+            <Node name="Study" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
         </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
