@@ -688,28 +688,31 @@
     ]
   },
   "packageFolders": {
-    "/Users/ften/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\X\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/ften/Projects/Study/Study/Study.csproj",
+      "projectUniqueName": "C:\\Users\\X\\Desktop\\Projects\\Forecast\\Study\\Study.csproj",
       "projectName": "Study",
-      "projectPath": "/Users/ften/Projects/Study/Study/Study.csproj",
-      "packagesPath": "/Users/ften/.nuget/packages/",
-      "outputPath": "/Users/ften/Projects/Study/Study/obj/",
+      "projectPath": "C:\\Users\\X\\Desktop\\Projects\\Forecast\\Study\\Study.csproj",
+      "packagesPath": "C:\\Users\\X\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\X\\Desktop\\Projects\\Forecast\\Study\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "/Users/ften/.config/NuGet/NuGet.Config"
+        "C:\\Users\\X\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -745,7 +748,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

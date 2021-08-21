@@ -12,8 +12,6 @@ namespace Study
             {
                 arrayForecast[i] = CreatingAForecast(i);
             }
-            //for (int i = 0; i < 10; i++)
-            //arrayForecast[i].GetForecast();
 
             Admin bob = new Admin("Bob", 27, "bob2.0", "nyam" );
             Admin en = new Admin( "En", 34, "En34", "En374" );

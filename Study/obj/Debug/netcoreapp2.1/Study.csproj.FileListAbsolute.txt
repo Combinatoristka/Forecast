@@ -10,3 +10,16 @@
 /Users/ften/Projects/Study/Study/obj/Debug/netcoreapp2.1/Study.dll
 /Users/ften/Projects/Study/Study/obj/Debug/netcoreapp2.1/Study.pdb
 /Users/ften/Projects/Study/Study/obj/Debug/netcoreapp2.1/Study.genruntimeconfig.cache
+C:\Users\X\Desktop\Projects\Forecast\Study\bin\Debug\netcoreapp2.1\Study.deps.json
+C:\Users\X\Desktop\Projects\Forecast\Study\bin\Debug\netcoreapp2.1\Study.runtimeconfig.json
+C:\Users\X\Desktop\Projects\Forecast\Study\bin\Debug\netcoreapp2.1\Study.runtimeconfig.dev.json
+C:\Users\X\Desktop\Projects\Forecast\Study\bin\Debug\netcoreapp2.1\Study.dll
+C:\Users\X\Desktop\Projects\Forecast\Study\bin\Debug\netcoreapp2.1\Study.pdb
+C:\Users\X\Desktop\Projects\Forecast\Study\obj\Debug\netcoreapp2.1\Study.csproj.AssemblyReference.cache
+C:\Users\X\Desktop\Projects\Forecast\Study\obj\Debug\netcoreapp2.1\Study.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\X\Desktop\Projects\Forecast\Study\obj\Debug\netcoreapp2.1\Study.AssemblyInfoInputs.cache
+C:\Users\X\Desktop\Projects\Forecast\Study\obj\Debug\netcoreapp2.1\Study.AssemblyInfo.cs
+C:\Users\X\Desktop\Projects\Forecast\Study\obj\Debug\netcoreapp2.1\Study.csproj.CoreCompileInputs.cache
+C:\Users\X\Desktop\Projects\Forecast\Study\obj\Debug\netcoreapp2.1\Study.dll
+C:\Users\X\Desktop\Projects\Forecast\Study\obj\Debug\netcoreapp2.1\Study.pdb
+C:\Users\X\Desktop\Projects\Forecast\Study\obj\Debug\netcoreapp2.1\Study.genruntimeconfig.cache
