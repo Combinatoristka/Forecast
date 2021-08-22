@@ -44,7 +44,7 @@ namespace Study
             return password;
         }
 
-        public void SetLogin(string setLogin)
+        public void SetLogin(string setLogin)//га
         {
 
             while (true)
