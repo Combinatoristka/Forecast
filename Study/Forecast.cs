@@ -27,7 +27,7 @@ namespace Study
                 temperatureMax = tMax;
             else
                 Console.WriteLine($"The maximum temperature value is out of range (-267) - 50C. Maximum temperature is set {temperatureMax}.");
-            if (tMin <= this.temperatureMax)
+            if (tMin <= this.temperatureMax) //min
                 this.temperatureMin = tMin;
             else
             {
