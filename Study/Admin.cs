@@ -44,45 +44,42 @@ namespace Study
             return password;
         }
 
-        public void SetLogin(string setLogin)//га
+        public void SetLogin(string login)
         {
-
-            while (true)
+            login.Trim();
+            if (login != "")
             {
-                setLogin.Trim();
-                if (setLogin != "")
+                for (int i = 0; i < countAdmin; i++)
                 {
-                    for (int i = 0; i < countAdmin; i++)
+                    if (i == countAdmin - 1 && login != listAdmin[i].login)
+                        this.login = login;
+                    else if (login == listAdmin[i].login)
                     {
-                        if (setLogin == listAdmin[i].login)
-                        {
-                            Console.WriteLine("This username already exists. Write another one.");
-                            Console.ReadLine();
-                        }
+                        Console.WriteLine("This username already exists. Write another one.");
+                        SetLogin(Console.ReadLine());
+                        break;
                     }
-                    this.login = setLogin;
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("The login field is empty. Write a new username.");
-                    Console.ReadLine();
                 }
             }
+            else
+            {
+                Console.WriteLine("The login field is empty. Write a new username.");
+                SetLogin(Console.ReadLine());
+            }
         }
-        public void SetPassword(string setPassword)
+        public void SetPassword(string password)
         {
-            setPassword.Trim();
+            password.Trim();
             while (true)
             {
-                if (String.IsNullOrEmpty(setPassword))
+                if (String.IsNullOrEmpty(password))
                 {
                     Console.WriteLine("The password was entered incorrectly. Try again.");
-                    setPassword = Console.ReadLine().Trim();
+                    password = Console.ReadLine().Trim();
                 }
                 else
                 {
-                    this.password = setPassword;
+                    this.password = password;
                     break;
                 }
             }
@@ -95,25 +92,25 @@ namespace Study
         }
 
 
-        public void SetTemperatureAd(int tMaxAd, int tMinAd, Forecast forecast)
+        public void SetTemperatureAd(int tMax, int tMin, Forecast forecast)
         {
-            forecast.SetTemperature(tMaxAd, tMinAd);
+            forecast.SetTemperature(tMax, tMin);
         }
-        public void SetPressureAd(int pressureAd, Forecast forecast)
+        public void SetPressureAd(int pressure, Forecast forecast)
         {
-            forecast.SetPressure(pressureAd);
+            forecast.SetPressure(pressure);
         }
-        public void SetHumidityAd(int humidityAd, Forecast forecast)
+        public void SetHumidityAd(int humidity, Forecast forecast)
         {
-            forecast.SetHumidity(humidityAd);
+            forecast.SetHumidity(humidity);
         }
-        public void SetWindAd(int strengthAd, EDirection directionAd, Forecast forecast)
+        public void SetWindAd(int strengthAd, EDirection direction, Forecast forecast)
         {
-            forecast.SetWind(strengthAd, directionAd);
+            forecast.SetWind(strengthAd, direction);
         }
-        public void SetPrecipitationAd(EVariantsPrecipitation precipitationAd, Forecast forecast)
+        public void SetPrecipitationAd(EVariantsPrecipitation precipitation, Forecast forecast)
         {
-            forecast.SetPrecipitation(precipitationAd);
+            forecast.SetPrecipitation(precipitation);
         }
 
     }

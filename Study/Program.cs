@@ -19,29 +19,11 @@ namespace Study
             Console.WriteLine("Hello, you are registered. (YES/NO)");
             if (CntrAnswer() == "YES")
             {
-                Console.WriteLine("Write login.");
-                string login = Console.ReadLine().Trim();
-                for (int enumerationL = 0; enumerationL < Admin.GetCountAdmin(); enumerationL++)
+                CntrLogin();
+                Console.WriteLine("Weather forecast for the next 10 days.\n");
+                foreach (Forecast day in arrayForecast)
                 {
-                    if (enumerationL == Admin.GetCountAdmin() - 1 && login != Admin.GetListAdmin()[enumerationL].GetLoginAd())
-                    {
-                        Console.WriteLine("Login is not correct. Do you enter again? (YES/NO)");
-
-                        if (CntrAnswer() == "YES")
-                        {
-                            Console.WriteLine("Write login.");
-                            login = Console.ReadLine().Trim();
-                            enumerationL = 0;
-                        }
-                        else
-                            break;
-                    }
-
-                    else if (login == Admin.GetListAdmin()[enumerationL].GetLoginAd())
-                    {
-                        CntrPassword(Admin.GetListAdmin()[enumerationL]);
-                        break;
-                    }
+                    day.GetForecast();
                 }
             }
             else
@@ -65,6 +47,29 @@ namespace Study
                 reply = Console.ReadLine().ToUpper().Trim();
             }
         }
+        public static void CntrLogin()
+        {
+            Console.WriteLine("Write login.");
+            string login = Console.ReadLine().Trim();
+            for (int enumerationL = 0; enumerationL < Admin.GetCountAdmin(); enumerationL++)
+            {
+                if (enumerationL == Admin.GetCountAdmin() - 1 && login != Admin.GetListAdmin()[enumerationL].GetLoginAd())
+                {
+                    Console.WriteLine("Login is not correct. Do you enter again? (YES/NO)");
+
+                    if (CntrAnswer() == "YES")
+                        CntrLogin();
+                    else
+                        break;
+                }
+
+                else if (login == Admin.GetListAdmin()[enumerationL].GetLoginAd())
+                {
+                    CntrPassword(Admin.GetListAdmin()[enumerationL]);
+                    break;
+                }
+            }
+        }
         static Forecast CreatingAForecast(int n)
         {
             var day = DateTime.Today.AddDays(n);
@@ -81,22 +86,17 @@ namespace Study
         }
         public static void CntrPassword(Admin admin)
         {
-            while (true)
-            {
-                Console.WriteLine("Write password.");
-                string password = Console.ReadLine().Trim();
+            Console.WriteLine("Write password.");
+            string password = Console.ReadLine().Trim();
 
-                if (password == admin.GetPasswordAd())
-                {
-                    Console.WriteLine($"Hello, {admin.GetNameAd()}.");
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Password is not correct. Do you enter again? (YES/NO)");
-                    if (CntrAnswer() == "NO")
-                        break;
-                }
+            if (password == admin.GetPasswordAd())
+                Console.WriteLine($"Hello, {admin.GetNameAd()}.");
+                
+            else
+            {
+                Console.WriteLine("Password is not correct. Do you enter again? (YES/NO)");
+                if (CntrAnswer() == "YES")
+                    CntrPassword(admin);
             }
         }
     }

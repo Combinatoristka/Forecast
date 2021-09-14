@@ -23,11 +23,11 @@ namespace Study
         }
         public void SetTemperature(int tMax, int tMin)
         {
-            if (tMax >= -267 && tMax <= 50)
+            if (50 >= tMax && tMax >= -267)
                 temperatureMax = tMax;
             else
                 Console.WriteLine($"The maximum temperature value is out of range (-267) - 50C. Maximum temperature is set {temperatureMax}.");
-            if (tMin <= this.temperatureMax) //min
+            if (tMin <= this.temperatureMax) //min thunt
                 this.temperatureMin = tMin;
             else
             {
@@ -36,31 +36,31 @@ namespace Study
             }
 
         }
-        public void SetPressure(int setPressure)
+        public void SetPressure(int pressure)
         {
-            if (setPressure > 735 && setPressure < 750)
-                this.pressure = setPressure;
+            if (750 > pressure && pressure > 735)
+                this.pressure = pressure;
             else
                 Console.WriteLine($"The pressure value is out of range 735 - 750mmHg. Pressure is set = {this.pressure}mmHg.");
         }
-        public void SetHumidity(int setHumidity)
+        public void SetHumidity(int humidity)
         {
-            if (setHumidity >= 0 && setHumidity <= 100)
-                this.humidity = setHumidity;
+            if (100 >= humidity && humidity >= 0)
+                this.humidity = humidity;
             else
                 Console.WriteLine($"The humidity value is out of range 0 - 100%. Humidity is set {this.humidity}%");
         }
-        public void SetWind(int strength, EDirection setDirection)
+        public void SetWind(int strength, EDirection direction)
         {
-            if (strength >= 0 && strength <= 67)
+            if (67 >= strength && strength >= 0)
                 this.windStrength = strength;
             else
                 Console.WriteLine($"The wind strength value is out of range 0 - 67 m/s. Wind strength {this.windStrength}m/s.");
-            this.windDirection = setDirection;
+            this.windDirection = direction;
         }
-        public void SetPrecipitation(EVariantsPrecipitation setPrecipitat)
+        public void SetPrecipitation(EVariantsPrecipitation precipitat)
         {
-            this.precipitation = setPrecipitat;
+            this.precipitation = precipitat;
         }
 
 
